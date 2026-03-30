@@ -5,12 +5,12 @@ import { exists } from "#/utils/file.ts";
 import yaml from "js-yaml";
 import os from "os";
 import path from "path";
-import { tap } from "chord";
+import { tap, type BuilderThis } from "chord";
 
 function extractCommands(chords: any): string[] {
   const result: string[] = [];
 
-  for (const chord of Object.values(chords ?? {})) {
+  for (const chord of chords ?? {}) {
     if (chord?.args?.[0] && !chord.shortcut) {
       result.push(chord.args[0]);
     }
@@ -20,8 +20,8 @@ function extractCommands(chords: any): string[] {
 }
 
 // TODO: call `setAppNeedsRelaunch` if we updated the keybindings
-export default function buildWarpHandler(this: any) {
-  const commands = extractCommands(this.chords);
+export default function buildWarpHandler(this: BuilderThis) {
+  const commands = extractCommands(this.chordsFile.chords);
 
   const syntheticKeybinds = generateSyntheticKeybinds(
     commands,
