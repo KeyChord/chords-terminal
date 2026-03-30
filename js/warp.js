@@ -2275,11 +2275,11 @@ var jsYaml = {
 //#region src/js/warp.ts
 function extractCommands(chords) {
 	const result = [];
-	for (const chord of chords ?? {}) if (chord?.args?.[0] && !chord.shortcut) result.push(chord.args[0]);
+	for (const chord of Object.values(chords)) if (chord?.args?.[0] && !chord.shortcut) result.push(chord.args[0]);
 	return result;
 }
 function buildWarpHandler() {
-	const syntheticKeybinds = generateSyntheticKeybinds(extractCommands(this.chordsFile.raw.chords), [
+	const syntheticKeybinds = generateSyntheticKeybinds(extractCommands(this.chordsFile.chords), [
 		"alt+shift+cmd+{0..9}",
 		"ctrl+cmd+shift+{0..9}",
 		"ctrl+alt+shift+{0..9}"

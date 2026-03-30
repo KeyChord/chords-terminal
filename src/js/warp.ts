@@ -7,10 +7,10 @@ import os from "os";
 import path from "path";
 import { tap, type BuilderThis } from "chord";
 
-function extractCommands(chords: any): string[] {
+function extractCommands(chords: Record<string, any>): string[] {
   const result: string[] = [];
 
-  for (const chord of chords ?? {}) {
+  for (const chord of Object.values(chords)) {
     if (chord?.args?.[0] && !chord.shortcut) {
       result.push(chord.args[0]);
     }
