@@ -1,6 +1,10 @@
 //#region package.json
 var name = "@keychord/chords-terminal";
 var version = "0.0.0";
+var repository = {
+	"type": "git",
+	"url": "https://github.com/KeyChord/chords-terminal"
+};
 var type = "module";
 var imports = { "#/*": "./src/js/*" };
 var dependencies = {
@@ -18,6 +22,7 @@ var packageManager = "pnpm@10.33.0";
 var package_default = {
 	name,
 	version,
+	repository,
 	type,
 	imports,
 	dependencies,
@@ -25,4 +30,4 @@ var package_default = {
 	packageManager
 };
 //#endregion
-export { package_default as default, dependencies, devDependencies, imports, name, packageManager, type, version };
+export { package_default as default, dependencies, devDependencies, imports, name, packageManager, repository, type, version };
