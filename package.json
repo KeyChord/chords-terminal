@@ -1,0 +1,22 @@
+{
+  "name": "@keychord/chords-terminal",
+  "displayName": "Terminal Chords",
+  "version": "0.0.0",
+  "description": "Tab chords for basic terminals: Terminal, iTerm2, Ghostty, WezTerm, Alacritty and Hyper.",
+  "categories": [
+    "Terminals"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/KeyChord/chords-terminal"
+  },
+  "type": "module",
+  "scripts": {
+    "test": "bun test --isolate"
+  },
+  "devDependencies": {
+    "@keychord/chordtest": "workspace:*",
+    "@keychord/config": "catalog:"
+  },
+  "packageManager": "pnpm@12.11.2"
+}
